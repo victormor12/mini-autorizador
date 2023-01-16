@@ -1,6 +1,5 @@
 package com.vr.miniautorizador.cartao.domain;
 
-import java.math.BigDecimal;
 import java.util.Optional;
 
 public interface CartaoDomainRepository {

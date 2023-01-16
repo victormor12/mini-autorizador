@@ -5,14 +5,15 @@ import lombok.Builder;
 import lombok.Value;
 
 import javax.validation.constraints.NotEmpty;
+import java.math.BigDecimal;
 
-public interface CriarCartaoUseCase {
+public interface IncluirTransacaoUseCase {
 
-    String handle(CriarCartaoCmd cmd);
+    void handle(IncluirTransacaoCmd cmd);
 
     @Value
     @Builder
-    class CriarCartaoCmd {
+    class IncluirTransacaoCmd {
 
         @Schema(required = true)
         @NotEmpty(message = "Campo Obrigatório")
@@ -20,7 +21,11 @@ public interface CriarCartaoUseCase {
 
         @Schema(required = true)
         @NotEmpty(message = "Campo Obrigatório")
-        String senha;
+        String senhaCartao;
+
+        @Schema(required = true)
+        @NotEmpty(message = "Campo Obrigatório")
+        BigDecimal valor;
 
     }
 }

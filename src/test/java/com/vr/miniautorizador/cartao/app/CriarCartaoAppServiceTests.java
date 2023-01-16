@@ -1,6 +1,7 @@
 package com.vr.miniautorizador.cartao.app;
 
 import com.vr.miniautorizador.cartao.CriarCartaoUseCase;
+import com.vr.miniautorizador.cartao.CriarCartaoUseCase.CriarCartaoCmd;
 import com.vr.miniautorizador.cartao.domain.CartaoDomainRepository;
 import com.vr.miniautorizador.cartao.exception.CartaoJaExisteException;
 import org.junit.jupiter.api.Test;
@@ -26,7 +27,7 @@ class CriarCartaoAppServiceTests {
 
     @Test
     void deveCriarUmCartao() {
-        var cmd = CriarCartaoUseCase.CriarCartaoCmd.builder()
+        var cmd = CriarCartaoCmd.builder()
             .numeroCartao("99999999999999999999")
             .senha("1234")
             .build();
@@ -45,7 +46,7 @@ class CriarCartaoAppServiceTests {
 
     @Test
     void naoDeveCriarUmCartaoRepitido() {
-        var cmd = CriarCartaoUseCase.CriarCartaoCmd.builder()
+        var cmd = CriarCartaoCmd.builder()
             .numeroCartao("99999999999999999999")
             .senha("1234")
             .build();

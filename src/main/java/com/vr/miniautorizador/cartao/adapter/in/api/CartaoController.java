@@ -29,7 +29,7 @@ public class CartaoController implements CartaoControllerOpenApi {
 
     @Override
     @PostMapping
-    public ResponseEntity<Void> criar(@Valid @RequestBody CriarCartaoCmd cmd) {
+    public ResponseEntity<Void> criar(@RequestBody @Valid CriarCartaoCmd cmd) {
         var numeroCartao = criarCartao.handle(cmd);
         var uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/").path(numeroCartao).build().toUri();
         return ResponseEntity.created(uri).build();
